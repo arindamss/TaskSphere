@@ -11,15 +11,15 @@
     <script src="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-bundle.js"></script>
     <script>
         const ui = SwaggerUIBundle({
-            url: 'https://github.com/arindamss/TaskSphere/blob/master/docs/swagger.json', // Adjust URL if your file is different
-            dom_id: '#swagger-ui',
-            deepLinking: true,
-            presets: [
+          url: "https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/arindamss/TaskSphere/master/docs/swagger.json", // Using CORS proxy
+          dom_id: '#swagger-ui',
+          presets: [
                 SwaggerUIBundle.presets.apis,
-                SwaggerUIBundle.presets.swagger,
-            ],
-            layout: "BaseLayout"
+                SwaggerUIStandalonePreset
+          ],
+          layout: "BaseLayout"
         });
+
     </script>
 </body>
 </html>
