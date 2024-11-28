@@ -1,0 +1,685 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Your API",
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080",
+        "description": "Generated server url"
+      }
+    ],
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "paths": {
+      "/user/signup": {
+        "post": {
+          "tags": [
+            "user-rest-impl"
+          ],
+          "operationId": "signup",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/user/login": {
+        "post": {
+          "tags": [
+            "user-rest-impl"
+          ],
+          "operationId": "login",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/mergeSubtask": {
+        "post": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "setSubTask",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelatedTaskDTO"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/mapuser": {
+        "post": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "mapUser",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskAssociateDto"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/add": {
+        "post": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "addTask",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskReqDTO"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/addSubTask/{parentTaskId}": {
+        "post": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "addSubTask",
+          "parameters": [
+            {
+              "name": "parentTaskId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskDTO"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/category/update": {
+        "post": {
+          "tags": [
+            "categort-rest-impl"
+          ],
+          "operationId": "updateCategory",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/category/delete/{id}": {
+        "post": {
+          "tags": [
+            "categort-rest-impl"
+          ],
+          "operationId": "deleteCategory",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/category/add": {
+        "post": {
+          "tags": [
+            "categort-rest-impl"
+          ],
+          "operationId": "add",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/addSubTask/{parentTaskId}/{subTaskId}": {
+        "patch": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "asignChild",
+          "parameters": [
+            {
+              "name": "parentTaskId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "subTaskId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/user/checkLogin": {
+        "get": {
+          "tags": [
+            "user-rest-impl"
+          ],
+          "operationId": "checkLogin",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/getSubTask/{parentTaskId}": {
+        "get": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "getSubTask",
+          "parameters": [
+            {
+              "name": "parentTaskId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/TaskDTO"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/getAssociateTask": {
+        "get": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "getAssociateTask",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/TaskDTO"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/admin/getTask": {
+        "get": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "getAllTask",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/TaskDTO"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/category/getAll": {
+        "get": {
+          "tags": [
+            "categort-rest-impl"
+          ],
+          "operationId": "getAll",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/category/get/{id}": {
+        "get": {
+          "tags": [
+            "categort-rest-impl"
+          ],
+          "operationId": "getCategory",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/manage/delete/associate": {
+        "delete": {
+          "tags": [
+            "task-rest-impl"
+          ],
+          "operationId": "deleteAssociate",
+          "parameters": [
+            {
+              "name": "taskId",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "userId",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "RelatedTaskDTO": {
+          "required": [
+            "parentTaskId",
+            "relatedTaskIds"
+          ],
+          "type": "object",
+          "properties": {
+            "parentTaskId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "relatedTaskIds": {
+              "maxItems": 2147483647,
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "minimum": 1,
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
+        "TaskAssociateDto": {
+          "type": "object",
+          "properties": {
+            "taskId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "usersIds": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
+        "TaskReqDTO": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "parentTaskId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "associateIds": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "categoryId": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "TaskDTO": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "relatedTaskes": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "parentTask": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "associateIds": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "categoryId": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "Category": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string"
+            },
+            "desc": {
+              "type": "string"
+            },
+            "createdBy": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  }
